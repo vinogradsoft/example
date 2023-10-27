@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+use Example\ModuleCreator;
+
+require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+
+if (PHP_SAPI !== 'cli') exit(1);
+
+$options = getopt('v:m:');
+
+if (empty($options['v']) || empty($options['m'])) {
+    echo 'Accept option: -v <vendor> -m <module name>';
+    exit(1);
+}
+
+(new ModuleCreator())->create(
+    realpath(__DIR__ . '/../private/packages'),
+    $options['v'],
+    $options['m']
+);

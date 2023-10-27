@@ -1,0 +1,29 @@
+{
+  "name": "vinogradsoft/example",
+  "description": "An example of using the vinogradsoft/simple-files library.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Grigor",
+      "email": "cmk.cmyk@mail.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Example\\": [
+        "src/"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "vinogradsoft/simple-files": "^2.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
