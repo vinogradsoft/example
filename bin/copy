@@ -11,7 +11,7 @@ if (PHP_SAPI !== 'cli') exit(1);
 $options = getopt('v:m:');
 
 if (empty($options['v']) || empty($options['m'])) {
-    echo 'Accept option: -v <vendor> -m <module name>';
+    echo 'Accept option: -v=<vendor> -m=<module name>';
     exit(1);
 }
 

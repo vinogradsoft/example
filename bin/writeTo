@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+use Example\TestCreator;
+
+require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+
+if (PHP_SAPI !== 'cli') exit(1);
+
+$options = getopt('c:');
+
+if (empty($options['c'])) {
+    echo 'Accept option: -c=<class name>';
+    exit(1);
+}
+
+$packages = realpath(__DIR__ . '/../private/packages');
+$class = ltrim(trim($options['c']), " \t\n\r\0\x0B\\");
+
+$pathToPhpClass = str_replace('\\', '/', $packages . '/' . $class . '.php');
+if (!file_exists($pathToPhpClass)) {
+    echo 'There is no such class. Check your spelling. Example php writeTo -c="\VendorName\ModuleName\Model\Model"', PHP_EOL;
+    exit(1);
+}
+require_once $pathToPhpClass;
+
+(new TestCreator())->create(
+    $packages,
+    $class
+);
