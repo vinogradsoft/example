@@ -54,7 +54,8 @@ class TestCreator
      * @return string
      * @throws \ReflectionException
      */
-    private function fillOutTemplate(string $className, Directory $directory, string $content, string $shortClassName): string
+    private function fillOutTemplate(string $className, Directory $directory,
+                                     string $content, string $shortClassName): string
     {
         $class = new \ReflectionClass($className);
         $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC);
@@ -63,7 +64,11 @@ class TestCreator
             $testMethods [] = '    public function test' . ucfirst($method->getName()) . '() {}' . PHP_EOL;
         }
 
-        $content = str_replace(':module', str_replace('/', '\\', $directory->getLocalPath()), $content);
+        $content = str_replace(
+            ':namespace',
+            str_replace('/', '\\', $directory->getLocalPath()), $content
+        );
+
         $content = str_replace(':use', $className, $content);
         $content = str_replace(':class_name', $shortClassName, $content);
         return str_replace(':methods', implode(PHP_EOL, $testMethods), $content);
