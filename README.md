@@ -36,6 +36,15 @@ cd path/to/cloned/example/bin/
 php writeTo -c="\VendorName\ModuleName\Model\Model"
 ```
 
+### Раздел "Перемещение директорий"
+
+Чтобы переместить изображение из модуля `VendorName/ModuleName`, в имени которого нет цифры 2, в папку
+`example/public/images`, можно выполнить команду:
+
+```
+php move -v="VendorName/ModuleName" -p="*[!2].png"
+```
+
 ## Лицензия
 
 Лицензия MIT (MIT). Пожалуйста, смотрите [файл лицензии](LICENSE) для получения дополнительной информации.

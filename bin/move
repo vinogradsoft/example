@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+
+if (PHP_SAPI !== 'cli') exit(1);
+
+$options = getopt('v:p:');
+
+if (empty($options['v']) || empty($options['p'])) {
+    echo 'Accept option: -v=<Vendor Name/Module Name> -p=<pattern>';
+    exit(1);
+}
+
+$pathToModules = realpath(__DIR__ . '/../private/packages');
+$viewFolder = $pathToModules . '/' . $options['v'] . '/View/';
+if (!is_dir($viewFolder)) {
+    echo 'View folder not found.', PHP_EOL;
+    exit(1);
+}
+
+$pattern = $viewFolder . $options['p'];
+(new \Example\ImageMover())->move(
+    realpath(__DIR__ . '/../public'),
+    $pattern
+);
