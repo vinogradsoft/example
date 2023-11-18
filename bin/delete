@@ -1,0 +1,20 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+
+require_once dirname(__DIR__, 1) . '/vendor/autoload.php';
+
+if (PHP_SAPI !== 'cli') exit(1);
+
+$varPath = realpath(__DIR__ . '/../var');
+$varCachePath = $varPath . '/cache';
+
+$message = 'The cache has been cleared.' . PHP_EOL;
+
+if (!is_dir($varCachePath)) {
+    echo $message;
+    exit(0);
+}
+
+(new \Example\CacheCleaner())->clean($varCachePath);
+echo $message;

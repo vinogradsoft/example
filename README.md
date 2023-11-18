@@ -45,6 +45,14 @@ php writeTo -c="\VendorName\ModuleName\Model\Model"
 php move -v="VendorName/ModuleName" -p="*[!2].png"
 ```
 
+### Раздел "Удаление директорий"
+
+Чтобы очистить кэш, выполните команду:
+
+```
+php delete
+```
+
 ## Лицензия
 
 Лицензия MIT (MIT). Пожалуйста, смотрите [файл лицензии](LICENSE) для получения дополнительной информации.
