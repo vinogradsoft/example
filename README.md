@@ -1,59 +1,64 @@
 # Example
 
-Это пример из руководства пользователя
-библиотекой [Simple-files](https://github.com/vinogradsoft/simple-files). Описание примера можно прочитать в
-разделе ["Прикладные методы"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-ru/applied-methods.md)
+This is an example from the [Simple-files](https://github.com/vinogradsoft/simple-files) library user manual. The
+description of the example can be read in the
+section ["Applied Methods"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-en/applied-methods.md)
 
-## Установка
+## Install
 
-Минимальная версия php 8.0.
+Requires PHP 8.0 or newer.
 
-- Клонируйте проект себе на компьютер.
-- В корне проекта запустите команду ``` composer install ```
+- Clone the project onto your computer.
+- In the root of the project, run the command
 
-## Запуск
+``` 
+composer install 
+```
 
-Чтобы запустить команду, описанную в любом из разделов, перейдите в консоли в папку `bin` скачанного проекта:
+## Launch
+
+To run the command described in any of the sections, go to the `bin` folder of the downloaded project in the console:
 
 ```
 cd path/to/cloned/example/bin/
 ```
 
-Где `path/to/cloned` та папка в которую вы скачали пример.
+Where `path/to/cloned` is the folder where you downloaded the example.
 
-### Раздел ["Копирование директорий"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-ru/copying-directories.md)
+### Section ["Copying directories"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-en/copying-directories.md)
 
-Создавать новые модули можно командой `php copy -v=<Vendor Name> -m=<Module Name>`.
-Повторный вызов команды с теми же параметрами приведет к перезаписи файлов `package.xml` и `composer.json` в модуле.
+You can create new modules with the command `php copy -v=<Vendor Name> -m=<Module Name>`.
+Calling the command again with the same parameters will overwrite the `package.xml` and `composer.json` files in the
+module.
 
-### Раздел ["Запись директорий"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-ru/writing-directories.md)
+### Section ["Writing directories"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-en/writing-directories.md)
 
-Создать тестовый класс можно командой `php writeTo -c="<Сlass Name>"`.
-Повторный вызов команды с теми же параметрами приведет к перезаписи созданного ранее тестового класса.
+You can create a test class with the command `php writeTo -c="<Class Name>"`.
+Calling the command again with the same parameters will overwrite the previously created test class.
 
-Пример для `\VendorName\ModuleName\Model\Model`, который существует в проекте:
+Example for `\VendorName\ModuleName\Model\Model` that exists in the project:
 
 ```
 php writeTo -c="\VendorName\ModuleName\Model\Model"
 ```
 
-### Раздел ["Перемещение директорий"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-ru/moving-directories.md)
+### Section ["Moving directories"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-en/moving-directories.md)
 
-Чтобы переместить изображение из модуля `VendorName/ModuleName`, в имени которого нет цифры 2, в папку
-`example/public/images`, можно выполнить команду:
+To move an image from a module `VendorName/ModuleName` that does not have a 2 in its name to the `example/public/images`
+folder, you can run the command:
 
 ```
 php move -v="VendorName/ModuleName" -p="*[!2].png"
 ```
 
-### Раздел ["Удаление директорий"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-ru/removing-directories.md)
+### Section ["Removing directories"](https://github.com/vinogradsoft/simple-files/blob/master/docs/guide-en/removing-directories.md)
 
-Чтобы очистить кэш, выполните команду:
+To clear the cache, run the command:
 
 ```
 php delete
 ```
 
-## Лицензия
+## License
 
-Лицензия MIT (MIT). Пожалуйста, смотрите [файл лицензии](LICENSE) для получения дополнительной информации.
+The MIT License (MIT). Please see License [File](LICENSE) for more information.
